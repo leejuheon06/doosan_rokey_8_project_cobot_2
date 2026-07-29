@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>robot_control</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="rokey@todo.todo">rokey</maintainer>
+  <license>TODO: License declaration</license>
+
+  <depend>rclpy</depend>
+  <depend>ament_index_python</depend>
+  <depend>cv_bridge</depend>
+  <depend>geometry_msgs</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>tf2_ros</depend>
+  <depend>od_msg</depend>
+  <depend>operator_ui</depend>
+  <depend>voice_interfaces</depend>
+  <exec_depend>inspection_3d</exec_depend>
+
+  <!-- 볼트 체결의 그리퍼 명령. 직접 Modbus 대신 onrobot_rg_control 드라이버의
+       /onrobot/sendCommand를 쓴다. -->
+  <depend>onrobot_rg_msgs</depend>
+
+  <!-- 공구 정리/전달. tool_handover_task가 tool_request의 공구명 정규화를
+       그대로 쓰므로 handover는 exec가 아니라 build 시점부터 필요하다. -->
+  <depend>tool_sorter_core</depend>
+  <depend>tool_sorter_handover</depend>
+  <depend>outlet_assembly</depend>
+  <exec_depend>tool_sorter_cleanup</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
